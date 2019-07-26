@@ -1,0 +1,12 @@
+-DOCSTART- -X- -X- O
+
+EU NNP B-NP B-ORG
+rejects VBZ B-VP O
+German JJ B-NP B-MISC
+call NN I-NP O
+to TO B-VP O
+boycott VB I-VP O
+Peter JJ B-NP B-PER
+Peter JJ B-NP B-PER
+Johnson JJ B-NP B-PER
+. . O O

@@ -1,3 +1,9 @@
+"""
+pyTorch implementation of Training Signal Annealing
+(Xie, Qizhe, et al. 2019: "Unsupervised data augmentation." arXiv preprint arXiv:1904.12848)
+"""
+
+
 import math
 import torch
 

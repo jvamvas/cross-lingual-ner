@@ -1,5 +1,4 @@
 
-
 def convert_iob_to_iob2(input_path, output_path):
     with open(input_path, "r", encoding="utf-8") as f:
         input_lines = f.readlines()

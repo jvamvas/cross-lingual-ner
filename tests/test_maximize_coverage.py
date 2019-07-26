@@ -3,8 +3,8 @@ from unittest import TestCase
 from pytorch_pretrained_bert import BertTokenizer
 
 from scripts.maximize_coverage import maximize_coverage
-from scripts.conll_subset import CoNLL2003Dataset
-from scripts.sample_fixed_numtokens import get_subset
+from scripts.conll_sampling import CoNLL2003Dataset
+from scripts.conll_sampling_fixed_tokens import get_subset
 
 
 class OverlapTestCase(TestCase):

@@ -1,3 +1,32 @@
+"""
+Print a table with statistics for a given CoNLL dataset.
+
+Example:
+Statistics for data/conll03/valid.txt:
+
+Number of documents     216
+Number of sentences     3250
+Number of tokens        51362
+Vocabulary size 9966
+
+Average length of documents     15.046296296296296
+Shortest document       3
+Longest document        168
+
+Average length of sentences     15.803692307692307
+Shortest sentence       1
+Longest sentence        109
+Number of classes       5
+
+Class distribution:
+O       42759
+PER     1842
+LOC     1837
+ORG     1341
+MISC    922
+5942
+"""
+
 import sys
 from collections import Counter, defaultdict
 

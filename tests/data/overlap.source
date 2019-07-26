@@ -1,0 +1,26 @@
+-DOCSTART- -X- -X- O
+
+EU NNP B-NP B-ORG
+rejects VBZ B-VP O
+German JJ B-NP B-MISC
+call NN I-NP O
+to TO B-VP O
+boycott VB I-VP O
+British JJ B-NP B-MISC
+lamb NN I-NP O
+. . O O
+
+Peter NNP B-NP B-PER
+Blackburn NNP I-NP I-PER
+
+BRUSSELS NNP B-NP B-LOC
+1996-08-22 CD I-NP O
+
+The DT B-NP O
+European NNP I-NP B-ORG
+Commission NNP I-NP I-ORG
+said VBD B-VP O
+on IN B-PP O
+Thursday NNP B-NP O
+it PRP B-NP O
+disagreed VBD B-VP O

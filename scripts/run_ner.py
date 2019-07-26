@@ -42,8 +42,8 @@ from pytorch_pretrained_bert.modeling import BertConfig, WEIGHTS_NAME, CONFIG_NA
 from pytorch_pretrained_bert.optimization import BertAdam, warmup_linear
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 
-from conlleval import evaluate
-from diagnose_ner import CoNLL2003Dataset
+from .conlleval import evaluate
+from .conll_sampling import CoNLL2003Dataset
 
 if sys.version_info[0] == 2:
     import cPickle as pickle

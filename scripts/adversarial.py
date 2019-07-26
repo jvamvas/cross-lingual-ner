@@ -1,3 +1,7 @@
+"""
+pyTorch submodules that are needed for language-adversarial learning.
+"""
+
 import math
 import torch
 from pytorch_pretrained_bert.modeling import BertPreTrainedModel, BertModel
@@ -6,6 +10,9 @@ from torch.autograd import Function
 
 
 class BertForAdversarialFinetuning(BertPreTrainedModel):
+    """
+    Version of BERT that includes a language discriminator
+    """
 
     def __init__(self, config, num_labels, num_languages):
         super().__init__(config)
@@ -30,6 +37,9 @@ class BertForAdversarialFinetuning(BertPreTrainedModel):
 
 
 class TokenLanguageDiscriminator(nn.Module):
+    """
+    Language Discriminator module that classifies each token
+    """
 
     def __init__(self, input_size, hidden_size, num_languages):
         super().__init__()
@@ -63,6 +73,10 @@ class TokenLanguageDiscriminator(nn.Module):
 
 
 class GradReverse(Function):
+    """
+    Gradient reversal layer
+    """
+
     def forward(self, x, **kwargs):
         return x.view_as(x)
 

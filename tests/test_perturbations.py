@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from torch.utils.data import TensorDataset, RandomSampler, DataLoader, SequentialSampler
+from torch.utils.data import TensorDataset, DataLoader, SequentialSampler
 
 from scripts.perturbations import *
 from scripts.run_uda_ner import read_unsupervised_examples, convert_unsupervised_examples_to_features
@@ -12,7 +12,7 @@ class PerturbationsTestCase(TestCase):
         self.batch_size = 10
         self.tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased", do_lower_case=False)
         self.device = None
-        self.unsupervised_filepath = "../tests/data/unsupervised.example.txt"
+        self.unsupervised_filepath = "../tests/data/unsupervised.txt"
         self.unsupervised_examples = read_unsupervised_examples(input_file=self.unsupervised_filepath)
         unsupervised_features = convert_unsupervised_examples_to_features(
             examples=self.unsupervised_examples,

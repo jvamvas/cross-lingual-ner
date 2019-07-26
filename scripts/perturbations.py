@@ -51,7 +51,7 @@ class CharReplacePerturbation(Perturbation):
                 replacement_candidates = list(charbase.replace(token[replaced_index], ''))
                 random.shuffle(replacement_candidates)
                 for replacement in replacement_candidates:
-                    candidate_token = token[:replaced_index] + replacement + token[replaced_index+1:]
+                    candidate_token = token[:replaced_index] + replacement + token[replaced_index + 1:]
                     if candidate_token in self.vocab_set:
                         perturbed_token = candidate_token
                         break
@@ -98,7 +98,7 @@ class CharRemovePerturbation(Perturbation):
             random.shuffle(replace_indices)
             perturbed_token = None
             for replaced_index in replace_indices:
-                candidate_token = token[:replaced_index] + token[replaced_index+1:]
+                candidate_token = token[:replaced_index] + token[replaced_index + 1:]
                 if replaced_index == 0 and token[0].isupper():
                     candidate_token = token[1].upper() + token[2:]
                 if candidate_token in self.vocab_set:
@@ -262,7 +262,8 @@ class SwapPerturbation(Perturbation):
         if self.exclude_names:
             nonames_mask_b = logits.argmax(dim=-1) == 0  # 0 is ID of "O" tag
             perturbed_token_mask *= nonames_mask_b
-            nonames_mask_a = torch.cat((nonames_mask_b[:, 1:], torch.ones((nonames_mask_b.shape[0], 1)).byte().to(self.device)), dim=-1)
+            nonames_mask_a = torch.cat(
+                (nonames_mask_b[:, 1:], torch.ones((nonames_mask_b.shape[0], 1)).byte().to(self.device)), dim=-1)
             perturbed_token_mask *= nonames_mask_a
         for index_b in perturbed_token_mask.nonzero():
             index_a = index_b + torch.LongTensor([0, -1]).to(self.device)
@@ -298,7 +299,8 @@ class MaskWordReplacePerturbation(Perturbation):
     def __init__(self, device, tokenizer: BertTokenizer, token_rate: float, exclude_names):
         super().__init__(device)
         self.mask = MaskPerturbation(device, tokenizer, token_rate=(0.8 * token_rate), exclude_names=exclude_names)
-        self.word_replace = WordReplacePerturbation(device, tokenizer, token_rate=(0.2 * token_rate), exclude_names=True)
+        self.word_replace = WordReplacePerturbation(device, tokenizer, token_rate=(0.2 * token_rate),
+                                                    exclude_names=True)
 
     def perturbe(self, batch, logits):
         perturbed_batch = self.mask.perturbe(batch, logits)

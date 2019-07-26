@@ -1,3 +1,11 @@
+"""
+Take a sample from a CoNLL-formatted dataset, with a given number of sentences.
+
+The original order and the document structure are ignored.
+The sampling is uniform, but if the resulting sample does not contain all tags at least once,
+it is discarded and the sampling is repeated.
+"""
+
 import itertools
 import random
 import sys

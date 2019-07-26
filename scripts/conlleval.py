@@ -1,3 +1,9 @@
+from __future__ import division, print_function, unicode_literals
+
+"""
+Source: https://github.com/sighsmile/conlleval
+"""
+
 """
 This script applies to IOB2 or IOBES tagging scheme.
 If you are using a different scheme, please convert to IOB2 or IOBES.
@@ -25,7 +31,6 @@ S-PER  O     O  B-LOC I-LOC E-LOC O
 prefix: IOBES
 chunk_type: PER, LOC, etc.
 """
-from __future__ import division, print_function, unicode_literals
 
 import sys
 from collections import defaultdict

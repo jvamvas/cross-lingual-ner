@@ -1,3 +1,7 @@
+"""
+Compute four different subword coverage measures between a two CoNLL datasets
+"""
+
 import logging
 import sys
 from collections import Counter
@@ -5,7 +9,7 @@ from copy import deepcopy
 
 from pytorch_pretrained_bert import BertTokenizer
 
-from diagnose_ner import CoNLL2003Dataset
+from .conll_statistics import CoNLL2003Dataset
 
 
 class OverlapMeasure:
@@ -26,8 +30,7 @@ class OverlapMeasure:
                 for token, ner_tag in sentence:
                     if token is None:
                         continue
-                    # word_pieces = self.tokenizer.tokenize(token)
-                    word_pieces = [token]
+                    word_pieces = self.tokenizer.tokenize(token)
                     words += word_pieces
                     if ner_tag != "O":
                         names += word_pieces
@@ -61,9 +64,9 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
     source = CoNLL2003Dataset(sys.argv[1])
     target = CoNLL2003Dataset(sys.argv[2])
-    # tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased", do_lower_case=False)
-    overlap_measure = OverlapMeasure(source, target, None)
+    tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased", do_lower_case=False)
+    overlap_measure = OverlapMeasure(source, target, tokenizer)
     print(overlap_measure.get_word_type_coverage())
-    # print(overlap_measure.get_word_token_coverage())
-    # print(overlap_measure.get_name_type_coverage())
-    # print(overlap_measure.get_name_token_coverage())
+    print(overlap_measure.get_word_token_coverage())
+    print(overlap_measure.get_name_type_coverage())
+    print(overlap_measure.get_name_token_coverage())

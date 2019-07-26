@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Run BERT on CoNLL-2003 NER with unsupervised data augmentation."""
+"""Run BERT on CoNLL-2003 NER with unsupervised data augmentation (Xie, Qizhe, et al. 2019: "Unsupervised data augmentation." arXiv preprint arXiv:1904.12848)."""
 
 from __future__ import absolute_import, division, print_function
 
@@ -27,7 +27,6 @@ import os
 import random
 import sys
 
-import math
 from io import open
 
 import numpy as np
@@ -45,7 +44,7 @@ from pytorch_pretrained_bert.optimization import BertAdam, warmup_linear
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 
 from .conlleval import evaluate
-from .diagnose_ner import CoNLL2003Dataset
+from .conll_statistics import CoNLL2003Dataset
 from .perturbations import load_perturbation_from_descriptor
 
 from .tsa import TSA, LogTSA, LinearTSA, ExpTSA, ConstantTSA

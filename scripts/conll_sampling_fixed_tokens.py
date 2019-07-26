@@ -1,9 +1,17 @@
+"""
+Take a sample from a CoNLL-formatted dataset that has a given number of sentences and approximates a given number of tokens.
+
+The original order and the document structure are ignored.
+The sampling is uniform, but if the resulting sample does not contain all tags at least once,
+it is discarded and the sampling is repeated.
+"""
+
 import itertools
 import random
 import sys
 from copy import deepcopy
 
-from conll_subset import CoNLL2003Dataset
+from .conll_sampling import CoNLL2003Dataset
 
 MAX_SEQ_LEN = 150
 

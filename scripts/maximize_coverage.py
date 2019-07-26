@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*
+
+"""
+Sample n sentences from a CoNLL training set such that the sample has (approximately) maximum subwords coverage
+of a provided validation set.
+"""
+
 import sys
 from copy import deepcopy
 
 from pytorch_pretrained_bert import BertTokenizer
 
-from conll_subset import CoNLL2003Dataset
+from .conll_sampling import CoNLL2003Dataset
 
 
 def maximize_coverage(source: CoNLL2003Dataset, target: CoNLL2003Dataset, n: int, tokenizer: BertTokenizer) -> CoNLL2003Dataset:

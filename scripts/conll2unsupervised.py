@@ -1,7 +1,10 @@
-import itertools
-import random
+"""
+Generate an unsupervised corpus from a CoNLL-formatted annotated dataset.
+
+Output format: One sentence per line. Tokens are separated by a space. The CoNLL document structure is ignored.
+"""
+
 import sys
-from copy import deepcopy
 
 
 class CoNLL2003Dataset:
