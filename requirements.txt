@@ -1,0 +1,4 @@
+torch==1.0.1
+pytorch-pretrained-bert==0.6.1
+tensorboardX==1.6
+tensorflow==1.13.1
