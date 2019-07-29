@@ -1,5 +1,5 @@
 """
-Compute four different subword coverage measures between a two CoNLL datasets
+Compute four different subword coverage measures between a two CoNLL datasets.
 """
 
 import logging

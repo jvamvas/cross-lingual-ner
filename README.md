@@ -98,3 +98,17 @@ run_uda_ner.py \
   --tsa linear_9 \
   --output_dir output/my_model
 ```
+
+### Miscellaneous Scripts
+
+**conll2unsupervised.py**: Generate an unsupervised corpus from a CoNLL-formatted annotated dataset.
+
+**conll_sampling.py**: Take a sample from a CoNLL-formatted dataset, with a given number of sentences.
+
+**conll_sampling_fixed_tokens.py**: Take a sample from a CoNLL-formatted dataset that has a given number of sentences and approximates a given number of tokens.
+
+**conll_statistics.py**: Print a table with statistics for a given CoNLL dataset.
+
+**maximize_coverage.py**: Sample n sentences from a CoNLL training set such that the sample has (approximately) maximum subwords coverage of a provided validation set.
+
+**measure_coverage.py**: Compute four different subword coverage measures between a two CoNLL datasets.
